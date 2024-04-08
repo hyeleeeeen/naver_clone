@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+    letter-spacing: -0.4px;
+    font-size: 10.5px;
+  }
+}
+
+@layer components {
+  .header-btn {
+    @apply inline-block cursor-pointer absolute top-[18px] p-2.5 hover:bg-color_option_bg rounded-full;
+  }
+  .header-btn2 {
+    @apply w-[26px] h-[26px] bg-no-repeat bg-[length:444px_434px];
+  }
+  .blind {
+    @apply absolute w-px h-px m-[-1px] overflow-hidden;
+  }
+  .nav-img-a {
+   @apply after:bg-naver after:bg-[length:444px_434px] after:bg-[left_calc(-250px)_top_calc(-90px)] after:w-[44px] after:h-[44px] after:inline-block after:relative after:m-1;
+  }
+  
+  .nav-img-b {
+    @apply before:bg-naver before:bg-[length:444px_434px] before:bg-[left_calc(0px)_top_calc(-128px)] before:w-[54px] before:h-[54px] before:block before:absolute relative;
+  }
+  .nav-text {
+    @apply text-[14.7px] text-color_body leading-5 font-medium block relative text-center top-[-3px];
+  }
+  .box-outline {
+    @apply rounded-lg mt-4 shadow-outline;
+  }
+  .box-header {
+    @apply border-b border-color_border_in h-[52px] py-[6px];
+  }
+  .login-line {
+    @apply before:content-[''] before:inline-block before:w-[1px] before:h-3 before:mx-3 before:mt-1 before:mb-0 before:bg-color_dot_divider;
+  }
+  
+}
+
+@layer components {
+  .news-header-style {
+    @apply flex px-[20px] pt-[18px] pb-[17px] leading-[23px] text-[16.8px] text-[rgba(8,8,8,.5)] font-extrabold;
+  }
+  .news-header-text {
+    @apply relative inline-block pl-[26px] hover:underline before:w-px before:h-[15px] before:text-color_dot_divider before:absolute before:inline-block;
+  }
+  .new-header-before {
+    @apply pl-[26px] relative before:block before:absolute before:w-px before:h-[15px] before:bg-color_dot_divider before:skew-x-[-15deg] before:top-[3px] before:left-[13px]
+  }
+
+  .news-footer-btn{
+    @apply w-9 h-9 px-[11px] border border-color_button_border rounded-full before:bg-naver before:block before:bg-[length:444px_434px] before:bg-[left_calc(-432px)_top_calc(-246px)] before:w-[10px] before:h-3;
+  }
+  .news-footer-right {
+    @apply bg-naver bg-[length:444px_434px] w-[20px] h-[20px] block;
+  }
+}
+
+@layer components {
+  .shop-header-btn {
+    @apply w-[30px] h-[30px] relative inline-block border border-[rgba(211,213,215,.8)] align-top 
+  }
+}
+
