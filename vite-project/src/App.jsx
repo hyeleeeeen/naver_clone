@@ -1,21 +1,17 @@
-import Header from "./components/header.jsx";
-import Search from "./components/search.jsx";
-import Nav from "./components/nav.jsx";
-import Main from "./components/naverMain.jsx";
+import LoginPage from './pages/login';
+import Home from './pages/home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 
 function App() {
   return (
-    <>
-      <div className="text-center">
-        <div className="w-[1280px] inline-block">
-          <Header />
-          <Search />
-          <Nav />
-          </div>
-          <Main />
-      </div>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/login" element={<LoginPage />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
