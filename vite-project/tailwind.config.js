@@ -1,6 +1,9 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      'sans': 'Helvetica Neue,sans-serif'
+    },
     extend: {
       colors: {
         color_main: "#03c75a",
@@ -38,10 +41,18 @@ export default {
         
       },
       backgroundImage: {
-        naver: "url(./src/assets/sp_main.png)",
+        naver: "url(./src/assets/img/sp_main.png)",
+        naver2: "url(./src/assets/img/sp_main2.png)",
+        ad: "url(./src/assets/img/ad.png)",
+        side_ad: "url(./src/assets/img/ad2.jpeg)",
+        shop_logo:"url(./src/assets/img/shopLogo.png)",
+        shop_ad: "url(./src/assets/img/hello_spring.jpeg)",
+        logo:"url(./src/assets/img/sp_logo.png)",
+        login_img: "url(./src/assets/img/sp_login.png)"
       },
       boxShadow: {
        outline: '0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04)',
+       login_outline:'0 5px 8px 0 rgba(68,68,68,.04);'
       }
     },
   },
