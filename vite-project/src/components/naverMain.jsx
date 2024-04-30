@@ -1,18 +1,26 @@
 import title from "../assets/titleData.json";
 import MainShop from "./main_shop.jsx";
+import stockData from "../assets/img/stock.png";
+import weahterData from "../assets/img/weather.png";
+import { Link } from "react-router-dom";
 
 const Main = () => {
+  const ad =
+    "https://s.pstatic.net/static/www/mobile/edit/20240403_1095/upload_17121373593144MzTJ.png";
   return (
-    <main className="flex justify-center mt-[43px]">
+    <main className="flex justify-center mt-[43px] mb-[60px]">
       <div className="w-[830px]">
-        <aside className="h-[134.5px] bg-gray-600 rounded-lg"></aside>
-        <section className="h-[426px] box-outline flex flex-col">
+        <aside className="h-[134.5px] bg-ad box-outline mt-0"></aside>
+        <section className="h-[426px] box-outline flex flex-col ">
           <div>
             <header className="news-header-style">
               <a href="#" className="text-color_title hover:underline">
                 뉴스스탠드
               </a>
-              <a href="#" className="news-header-text pl-[18px] before:w-1 before:h-1 before:bg-color_dot_divider before:inline-block before:absolute before:border-1/2 before:mx-[7px] before:mt-[9px] before:rounded-full before:left-0">
+              <a
+                href="#"
+                className="news-header-text pl-[18px] before:w-1 before:h-1 before:bg-color_dot_divider before:inline-block before:absolute before:border-1/2 before:mx-[7px] before:mt-[9px] before:rounded-full before:left-0"
+              >
                 언론사편집
               </a>
               <a href="#" className="news-header-text new-header-before">
@@ -70,7 +78,7 @@ const Main = () => {
                     href="#"
                     className="bg-white h-full flex justify-center items-center py-[18px]"
                   >
-                    <img src={item.imgeUrl} className="h-[20px]"></img>
+                    <img src={item.imgUrl} className="h-[20px]"></img>
                   </a>
                 );
               })}
@@ -103,15 +111,12 @@ const Main = () => {
           <p className="text-color_body ">
             네이버를 더 안전하고 편리하게 이용하세요
           </p>
-          <a
-            href="#"
-            className="bg-[#03c75a] w-[380px] h-[56px] mt-[13px] py-[17px] px-0 text-white border rounded border-[rgba(0,0,0,.06)] shadow-[0_2px_4px_0_rgba(3,199,90,.1)] hover:bg-[#17b75e]"
-          >
-            <i className="bg-naver bg-[length:444px_434px] bg-[left_calc(-55px)_top_calc(-166px)] w-[72px] h-[14px] m-0 mt-[3px] mr-1 inline-block align-top">
-              <span className="blind">naver</span>
-            </i>{" "}
-            로그인
-          </a>
+          <Link to="/login" className="bg-[#03c75a] w-[380px] h-[56px] mt-[13px] py-[17px] px-0 text-white border rounded border-[rgba(0,0,0,.06)] shadow-[0_2px_4px_0_rgba(3,199,90,.1)] hover:bg-[#17b75e]">
+              <i className="bg-naver bg-[length:444px_434px] bg-[left_calc(-55px)_top_calc(-166px)] w-[72px] h-[14px] m-0 mt-[3px] mr-1 inline-block align-top">
+                <span className="blind">naver</span>
+              </i>
+              로그인
+          </Link>
           <div className="text-[13.7px] text-color_caption2 mt-4">
             <a href="#" className="hover:underline">
               아이디 찾기
@@ -124,16 +129,23 @@ const Main = () => {
             </a>
           </div>
         </section>
-        <aside className="h-60 box-outline "></aside>
+        <aside className="h-60 box-outline bg-side_ad bg-contain"></aside>
         <section className="h-[236px] box-outline px-[18px]">
-          <header className="box-header">날씨</header>
-          <div></div>
+          <header className="box-header text-left text-[16px] font-extrabold py-4">
+            날씨
+          </header>
+          <img src={weahterData}></img>
         </section>
         <section className="h-[236px] box-outline px-[18px]">
-          <header className="box-header">증시</header>
+          <header className="box-header text-left text-[16px] font-extrabold py-4">
+            증시
+          </header>
+          <img src={stockData}></img>
           <div></div>
         </section>
-        <section className="h-[80px] box-outline"></section>
+        <section className="h-[80px] box-outline ">
+          <img src={ad} className=""></img>
+        </section>
       </div>
     </main>
   );

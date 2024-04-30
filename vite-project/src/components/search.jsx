@@ -2,7 +2,7 @@ const Search = () => {
   return (
     <form
       action=""
-      className="w-[708px] h-[60px] rounded-[33px] border-color_main border inline-flex bg-white hover:shadow-[0_2px_4px_0_rgba(0,0,0,.12)] relative top-2"
+      className="w-[708px] h-[60px] rounded-[33px] border-color_main border inline-flex bg-white hover:shadow-[0_2px_4px_0_rgba(0,0,0,.12)] relative top-[6px]"
     >
       <a href="#" className="w-[68px] h-full p-[17px] pr-4 pl-[27px] mr-0">
         <svg
