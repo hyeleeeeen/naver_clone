@@ -1,82 +1,50 @@
-import { useState } from "react";
+import  { useState } from "react";
 
 const Main = () => {
   const [loginInput, setLoginInput] = useState({ id: "", password: "" });
-  const [isInputDelete, setIsInputDelete] = useState(false);
   const [isLoginChecked, setIsLoginChecked] = useState(false);
-  const [isIdFocus, setIsIdFocus] = useState(false);
-  const [isPwFocus, setIsPwFocus] = useState(false);
-  const adImg =
-    "https://ssl.pstatic.net/melona/libs/1378/1378592/b96ed7146a112e87d6ea_20240423164744254.png";
+  const [focusField, setFocusField] = useState(null);
+  const adImg = "https://ssl.pstatic.net/melona/libs/1378/1378592/b96ed7146a112e87d6ea_20240423164744254.png";
 
   localStorage.setItem("id1", "aass2296");
   localStorage.setItem("pw1", "aass9087");
-  const localId = localStorage.getItem("id1");
-  const localPw = localStorage.getItem("pw1");
+  const localStorageId = localStorage.getItem("id1");
+  const localStoragePw = localStorage.getItem("pw1");
 
-  const handleIdFocus = () => {
-    setIsIdFocus(true);
-    setIsPwFocus(false);
-    console.log("Id!");
-  };
-  const handlePwFocus = () => {
-    setIsPwFocus(true);
-    setIsIdFocus(false);
-    console.log("Pw!");
+  const handleFocus = (field) => {
+    setFocusField(field);
   };
 
-  const handleInputChange = (field, e) => {
+  const handleInputChange = (field, value) => {
     setLoginInput((prev) => ({
       ...prev,
-      [field]: e.target.value,
-    }));
-    console.log(loginInput);
-    setIsInputDelete((prev) => ({
-      ...prev,
-      [field]: e.target.value !== "",
+      [field]: value,
     }));
   };
 
-  const handleIdDelete = () => {
+  const handleDelete = (field) => {
     setLoginInput((prev) => ({
       ...prev,
-      id: "",
+      [field]: "",
     }));
-    setIsInputDelete((prev) => ({
-      ...prev,
-      id: false,
-    }));
-
-    console.log("지워");
-  };
-
-  const handlePwDelete = () => {
-    setLoginInput((prev) => ({
-      ...prev,
-      password: "",
-    }));
-    setIsInputDelete((prev) => ({
-      ...prev,
-      password: false,
-    }));
-
-    console.log("지워");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginInput);
+    isLoginRight();
   };
 
   const handleCheck = () => {
     setIsLoginChecked(!isLoginChecked);
-    console.log("checked!");
   };
 
   const isLoginRight = () => {
     if (loginInput.id === "" || loginInput.password === "") {
       alert("아이디와 비밀번호를 입력해주세요.");
-    } else if (localId === loginInput.id && localPw === loginInput.password) {
+    } else if (
+      localStorageId === loginInput.id &&
+      localStoragePw === loginInput.password
+    ) {
       alert("로그인 성공");
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
@@ -87,10 +55,7 @@ const Main = () => {
     <>
       <section className="w-[460px] relative text-[14px] tracking-[-.5px] my-0 mx-auto">
         <div className="flex w-full">
-          <a
-            href="#"
-            className="flex-1 relative m-0 p-0 border border-[#c6c6c6] bg-white border-r-0 border-b-0 rounded-tl-md rounded-tr-md h-[61px] block pt-[17px] z-[5] after:absolute after:bg-login_img after:bg-[length:290px_275px] after:bg-[left_calc(-225px)_top_0px] after:w-[15px] after:h-[62px] after:top-[-1px] after:right-[-8px]"
-          >
+          <a href="#" className="flex-1 relative m-0 p-0 border border-[#c6c6c6] bg-white border-r-0 border-b-0 rounded-tl-md rounded-tr-md h-[61px] block pt-[17px] z-[5] after:absolute after:bg-login_img after:bg-[length:290px_275px] after:bg-[left_calc(-225px)_top_0px] after:w-[15px] after:h-[62px] after:top-[-1px] after:right-[-8px]">
             <span className="login-nav-btn text-[#333] left-[33px] before:bg-[left_calc(-192px)_top_calc(-255px)]">
               ID 로그인
             </span>
@@ -110,35 +75,53 @@ const Main = () => {
           <form className="py-5 px-6 block" onSubmit={handleSubmit}>
             <div>
               <div
-                className={`login-input-box ${isIdFocus ? "border-[#09aa5c]" : "border-[#dadada]"} rounded-tl-md rounded-tr-md `}
+                className={`login-input-box ${
+                  focusField === "id"
+                    ? "border-[#09aa5c]"
+                    : "border-[#dadada]"
+                } rounded-tl-md rounded-tr-md `}
               >
                 <div
-                  className={`login-input-icon ${isIdFocus ? "bg-[left_calc(-156px)_top_calc(-255px)]" : "bg-[left_calc(-175px)_top_calc(-255px)]"}`}
+                  className={`login-input-icon ${
+                    focusField === "id"
+                      ? "bg-[left_calc(-156px)_top_calc(-255px)]"
+                      : "bg-[left_calc(-175px)_top_calc(-255px)]"
+                  }`}
                 >
                   <span className="blind">아이디</span>
                 </div>
                 <input
                   type="text"
                   placeholder="아이디"
-                  title="아이디"
+                  title="id"
                   maxLength="41"
-                  onFocus={handleIdFocus}
-                  onChange={(e) => handleInputChange("id", e)}
+                  onFocus={() => handleFocus("id")}
+                  onChange={(e) => handleInputChange("id", e.target.value)}
                   value={loginInput.id}
                   className="login-input"
                 />
                 <span
-                  className={`login-input-delete ${isInputDelete.id ? "inline-block" : "hidden"} `}
-                  onClick={handleIdDelete}
+                  className={`login-input-delete ${
+                    loginInput.id !== "" ? "inline-block" : "hidden"
+                  }`}
+                  onClick={() => handleDelete("id")}
                 >
                   <span className="blind">삭제</span>
                 </span>
               </div>
               <div
-                className={`login-input-box ${isPwFocus ? "border-[#09aa5c]" : "border-[#dadada]"} rounded-bl-md rounded-br-md `}
+                className={`login-input-box ${
+                  focusField === "password"
+                    ? "border-[#09aa5c]"
+                    : "border-[#dadada]"
+                } rounded-bl-md rounded-br-md `}
               >
                 <div
-                  className={`login-input-icon ${isPwFocus ? "bg-[left_calc(-210px)_top_calc(-255px)]" : "bg-[left_calc(-66px)_top_calc(-255px)]"}`}
+                  className={`login-input-icon ${
+                    focusField === "password"
+                      ? "bg-[left_calc(-210px)_top_calc(-255px)]"
+                      : "bg-[left_calc(-66px)_top_calc(-255px)]"
+                  }`}
                 >
                   <span className="blind">비밀번호</span>
                 </div>
@@ -146,14 +129,18 @@ const Main = () => {
                   type="password"
                   placeholder="비밀번호"
                   title="비밀번호"
-                  onChange={(e) => handleInputChange("password", e)}
+                  onChange={(e) =>
+                    handleInputChange("password", e.target.value)
+                  }
                   value={loginInput.password}
-                  onFocus={handlePwFocus}
+                  onFocus={() => handleFocus("password")}
                   className="login-input"
                 />
                 <span
-                  className={`login-input-delete ${isInputDelete.password ? "inline-block" : "hidden"}`}
-                  onClick={handlePwDelete}
+                  className={`login-input-delete ${
+                    loginInput.password !== "" ? "inline-block" : "hidden"
+                  }`}
+                  onClick={() => handleDelete("password")}
                 >
                   <span className="blind">삭제</span>
                 </span>
@@ -169,7 +156,11 @@ const Main = () => {
                 />
                 <label
                   htmlFor="keep"
-                  className={`inline-block cursor-pointer pl-[23px] before:bg-login_img before:absolute before:top-0 before:left-0 before:bg-[length:290px_275px] ${isLoginChecked ? "before:bg-[left_calc(-23px)_top_calc(-256px)]" : "before:bg-[left_calc(-32px)_top_calc(-234px)]"} before:w-[18px] before:h-[18px]`}
+                  className={`inline-block cursor-pointer pl-[23px] before:bg-login_img before:absolute before:top-0 before:left-0 before:bg-[length:290px_275px] ${
+                    isLoginChecked
+                      ? "before:bg-[left_calc(-23px)_top_calc(-256px)]"
+                      : "before:bg-[left_calc(-32px)_top_calc(-234px)]"
+                  } before:w-[18px] before:h-[18px]`}
                   onClick={handleCheck}
                 >
                   로그인 상태 유지
@@ -196,7 +187,6 @@ const Main = () => {
             <button
               type="submit"
               className="mt-[36px] w-full py-[13px] border border-[rgba(0,0,0,.15)] rounded-md bg-[#09aa5c]"
-              onClick={isLoginRight}
             >
               <span className="text-white font-bold leading-6 text-[20px]">
                 로그인
@@ -217,7 +207,7 @@ const Main = () => {
         </a>
       </div>
       <aside className="w-[460px] block">
-        <img src={adImg}></img>
+        <img src={adImg} alt="ad" />
       </aside>
     </>
   );
