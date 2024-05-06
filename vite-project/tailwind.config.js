@@ -43,6 +43,7 @@ export default {
       backgroundImage: {
         naver: "url(./src/assets/img/sp_main.png)",
         naver2: "url(./src/assets/img/sp_main2.png)",
+        navIcon: "url(./src/assets/img/navIcon.png)",
         ad: "url(./src/assets/img/ad.png)",
         side_ad: "url(./src/assets/img/ad2.jpeg)",
         shop_logo:"url(./src/assets/img/shopLogo.png)",
