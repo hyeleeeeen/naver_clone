@@ -5,10 +5,10 @@ import weahterData from "../assets/img/weather.png";
 import { Link } from "react-router-dom";
 
 const Main = () => {
-  const ad =
+  const adImg =
     "https://s.pstatic.net/static/www/mobile/edit/20240403_1095/upload_17121373593144MzTJ.png";
   return (
-    <main className="flex justify-center mt-[43px] mb-[60px]">
+    <main className="flex justify-center mt-[47px] mb-[60px]">
       <div className="w-[830px]">
         <aside className="h-[134.5px] bg-ad box-outline mt-0"></aside>
         <section className="h-[426px] box-outline flex flex-col ">
@@ -23,15 +23,15 @@ const Main = () => {
               >
                 언론사편집
               </a>
-              <a href="#" className="news-header-text new-header-before">
-                엔터
-              </a>
-              <a href="#" className="news-header-text new-header-before">
-                스포츠
-              </a>
-              <a href="#" className="news-header-text new-header-before">
-                경제
-              </a>
+              {["엔터", "스포츠", "경제"].map((category, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="news-header-text new-header-before"
+                >
+                  {category}
+                </a>
+              ))}
             </header>
             <div className="flex justify-between bg-color_option_bg px-[20px] py-3 mx-[20px] leading-[26px] text-[14.7px] rounded">
               <div className="flex">
@@ -78,7 +78,11 @@ const Main = () => {
                     href="#"
                     className="bg-white h-full flex justify-center items-center py-[18px]"
                   >
-                    <img src={item.imgUrl} className="h-[20px]"></img>
+                    <img
+                      src={item.imgUrl}
+                      alt="newTitle"
+                      className="h-[20px]"
+                    ></img>
                   </a>
                 );
               })}
@@ -111,13 +115,16 @@ const Main = () => {
           <p className="text-color_body ">
             네이버를 더 안전하고 편리하게 이용하세요
           </p>
-          <Link to="/login" className="bg-[#03c75a] w-[380px] h-[56px] mt-[13px] py-[17px] px-0 text-white border rounded border-[rgba(0,0,0,.06)] shadow-[0_2px_4px_0_rgba(3,199,90,.1)] hover:bg-[#17b75e]">
-              <i className="bg-naver bg-[length:444px_434px] bg-[left_calc(-55px)_top_calc(-166px)] w-[72px] h-[14px] m-0 mt-[3px] mr-1 inline-block align-top">
-                <span className="blind">naver</span>
-              </i>
-              로그인
+          <Link
+            to="/login"
+            className="bg-[#03c75a] w-[380px] h-[56px] mt-[13px] py-[17px] px-0 text-white border rounded border-[rgba(0,0,0,.06)] shadow-[0_2px_4px_0_rgba(3,199,90,.1)] hover:bg-[#17b75e]"
+          >
+            <i className="bg-naver bg-[length:444px_434px] bg-[left_calc(-55px)_top_calc(-166px)] w-[72px] h-[14px] m-0 mt-[3px] mr-2 inline-block align-top">
+              <span className="blind">naver</span>
+            </i>
+            로그인
           </Link>
-          <div className="text-[13.7px] text-color_caption2 mt-4">
+          <div className="text-[13.7px] text-color_caption2 mt-[14px]">
             <a href="#" className="hover:underline">
               아이디 찾기
             </a>
@@ -134,17 +141,16 @@ const Main = () => {
           <header className="box-header text-left text-[16px] font-extrabold py-4">
             날씨
           </header>
-          <img src={weahterData}></img>
+          <img src={weahterData} alt="날씨"></img>
         </section>
         <section className="h-[236px] box-outline px-[18px]">
           <header className="box-header text-left text-[16px] font-extrabold py-4">
             증시
           </header>
-          <img src={stockData}></img>
-          <div></div>
+          <img src={stockData} alt="증시"></img>
         </section>
         <section className="h-[80px] box-outline ">
-          <img src={ad} className=""></img>
+          <img src={adImg} alt="광고이미지" className=""></img>
         </section>
       </div>
     </main>

@@ -1,80 +1,49 @@
 const Nav = () => {
-  const naverLogo =
-    "https://s.pstatic.net/static/www/mobile/edit/20240112_1095/upload_1705057885416AaxUM.png";
+  const navData = [
+    { text: "메일", imgPos: "after:bg-[left_calc(-250px)_top_calc(-90px)]" },
+    { text: "카페", imgPos: "after:bg-[left_calc(-250px)_top_calc(0px)]" },
+    { text: "블로그", imgPos: "after:bg-[left_calc(-200px)_top_calc(-98px)]" },
+    { text: "쇼핑", imgPos: "after:bg-[left_calc(-90px)_top_calc(-209px)]" },
+    { text: "뉴스", imgPos: "after:bg-[left_calc(0px)_top_calc(-209px)]" },
+    { text: "증권", imgPos: "after:bg-[left_calc(-180px)_top_calc(-209px)]" },
+    { text: "부동산", imgPos: "after:bg-[left_calc(-45px)_top_calc(-209px)]" },
+    {
+      text: "지도",
+      imgPos: "after:bg-[left_calc(-201px)_top_calc(0px)]",
+      size: "after:w-12 after:h-12 before:left-[1px]",
+    },
+    { text: "웹툰", imgPos: "after:bg-[left_calc(-225px)_top_calc(-209px)]" },
+    {
+      text: "치지직",
+    },
+    { text: "더보기", imgPos: "after:bg-[left_calc(-250px)_top_calc(-135px)]" },
+  ];
+
   return (
     <ul className="flex justify-center mt-3">
-      <li className="ml-0 w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b"></div>
-          <span className="nav-text mt-[3px]">메일</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-250px)_top_calc(0px)]"></div>
-          <span className="nav-text mt-[3px]">카페</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-200px)_top_calc(-98px)]"></div>
-          <span className="nav-text mt-[3px]">블로그</span>
-        </a>
-      </li>
-      <li className="ml-[-2px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-90px)_top_calc(-209px)]"></div>
-          <span className="nav-text mt-[3px]">쇼핑</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(0px)_top_calc(-209px)]"></div>
-          <span className="nav-text mt-[3px]">뉴스</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-180px)_top_calc(-209px)]"></div>
-          <span className="nav-text mt-[3px]">증권</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-45px)_top_calc(-209px)]"></div>
-          <span className="nav-text mt-[3px]">부동산</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-201px)_top_calc(0px)] after:w-12 after:h-12 before:left-[1px]"></div>
-          <span className="nav-text top-[-4px] ">지도</span>
-        </a>
-      </li>
-      <li className="ml-[-2px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-225px)_top_calc(-209px)]"></div>
-          <span className="nav-text mt-[3px]"> 웹툰</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-b before:left-[-5px] after:block after:relative top-[1px] ">
-            <img
-              src={naverLogo}
-              alt="치지직"
-              className="w-11 h-11 relative top-[3px]"
-            />
-          </div>
-          <span className="nav-text mt-4">치지직</span>
-        </a>
-      </li>
-      <li className="ml-[-3px] w-16 flex justify-center">
-        <a href="#" className="inline-block">
-          <div className="nav-img-a nav-img-b after:bg-[left_calc(-250px)_top_calc(-135px)]"></div>
-          <span className="blind">더보기</span>
-        </a>
-      </li>
+      {navData.map((item, index) => {
+        const firstItem = index === 0;
+        const lastItem = index === navData.length - 1;
+        const mapItem = item.text === "지도";
+
+        return (
+          <li
+            key={index}
+            className={`${firstItem ? "ml-0" : "ml-[-3px]"} w-16 flex justify-center`}
+          >
+            <a href="#" className="inline-block">
+              <div
+                className={`${index === 9 ? "after:bg-navIcon after:w-[44px] after:h-[44px] after:bg-[length:44px_44px] after:inline-block after:relative after:m-1" : `nav-img-a ${item.imgPos}`} nav-img-b ${item.text === "지도" ? `${item.size}` : " "} `}
+              ></div>
+              <span
+                className={`nav-text ${mapItem ? "mt-[-1px]" : "mt-[3px]"} ${lastItem ? "blind" : " "}`}
+              >
+                {item.text}
+              </span>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 };

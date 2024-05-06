@@ -5,6 +5,7 @@ const Footer = () => {
     "회원정보 고객센터",
   ];
 
+
   return (
     <footer className="pt-[63px] pb-8 text-[#888] text-[12px] w-full text-center">
       <div>
