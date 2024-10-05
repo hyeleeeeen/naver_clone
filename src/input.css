@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+    letter-spacing: -0.4px;
+    font-size: 10.5px;
+    color: #101010;
+  }
+}
+
+@layer components {
+  .header-btn {
+    @apply inline-block cursor-pointer absolute top-[18px] p-2.5 hover:bg-color_option_bg rounded-full;
+  }
+  .header-btn2 {
+    @apply w-[26px] h-[26px] bg-no-repeat bg-[length:444px_434px];
+  }
+  .blind {
+    @apply absolute w-px h-px m-[-1px] overflow-hidden;
+  }
+  .nav-img-a {
+   @apply after:bg-naver after:bg-[length:444px_434px] after:w-[44px] after:h-[44px] after:inline-block after:relative after:m-1;
+  }
+  
+  .nav-img-b {
+    @apply before:bg-naver before:bg-[length:444px_434px] before:bg-[left_calc(0px)_top_calc(-128px)] before:w-[54px] before:h-[54px] before:block before:absolute relative;
+  }
+  .nav-text {
+    @apply text-[14.7px] text-color_body leading-5 font-medium block relative text-center top-[-3px];
+  }
+  .box-outline {
+    @apply rounded-lg mt-4 shadow-outline;
+  }
+  .box-header {
+    @apply border-b border-color_border_in h-[52px] py-[6px];
+  }
+  .login-line {
+    @apply before:content-[''] before:inline-block before:w-[1px] before:h-3 before:mx-3 before:mt-1 before:mb-0 before:bg-color_dot_divider;
+  }
+  
+}
+
+@layer components {
+  .news-header-style {
+    @apply flex px-[20px] pt-[18px] pb-[17px] leading-[23px] text-[16.8px] text-[rgba(8,8,8,.5)] font-extrabold;
+  }
+  .news-header-text {
+    @apply relative inline-block pl-[26px] hover:underline before:w-px before:h-[15px] before:text-color_dot_divider before:absolute before:inline-block;
+  }
+  .new-header-before {
+    @apply pl-[26px] relative before:block before:absolute before:w-px before:h-[15px] before:bg-color_dot_divider before:skew-x-[-15deg] before:top-[3px] before:left-[13px]
+  }
+
+  .news-footer-btn{
+    @apply w-9 h-9 px-[11px] border border-color_button_border rounded-full before:bg-naver before:block before:bg-[length:444px_434px] before:bg-[left_calc(-432px)_top_calc(-246px)] before:w-[10px] before:h-3;
+  }
+  .news-footer-right {
+    @apply bg-naver bg-[length:444px_434px] w-[20px] h-[20px] block;
+  }
+}
+
+@layer components {
+  .shop-menu-btn {
+    @apply inline-block border border-[rgba(238,242,248,.8)] rounded-full relative w-8 h-8 bg-[#fff] before:bg-naver2 before:bg-[length:159px_137px] before:w-8 before:h-8 before:absolute before:top-0;
+  }
+}
+
+@layer components {
+  .login-nav-btn {
+    @apply pl-6 relative font-medium text-[16px] leading-[20px] text-[#777] align-middle block before:bg-login_img before:bg-[length:290px_275px] before:w-4 before:h-4 before:block before:absolute before:top-0.5 before:left-0 
+  }
+  .login-nav-a {
+    @apply flex-1 relative border pt-[17px] bg-[#f8f9fa] border-[#e3e3e3] z-[2] h-[61px] border-b-0
+  }
+  .login-input-box {
+    @apply relative text-left border w-full h-12 pt-[14px] pb-[13px] px-[17px] 
+  }
+  .login-input-icon {
+    @apply bg-login_img bg-[length:290px_275px] left-[18px] top-[15px] w-4 h-4 absolute
+  }
+  .login-input {
+    @apply outline-none pr-[30px] ps-0.5 pe-0.5 left-[22px] relative w-[350px] text-[16px] text-[#222] z-[4] leading-[19px] cursor-pointer
+  }
+  .login-input-delete {
+    @apply absolute w-[18px] h-[18px] top-[6px] right-2 z-[5] mt-2 ml-2 bg-login_img bg-[length:290px_275px] bg-[left_calc(-179px)_top_calc(-182px)]
+  }
+  .login-find {
+    @apply inline-block relative pl-7 before:absolute before:w-px before:h-3 before:bg-[#dadada] before:top-[3px] before:left-3
+  }
+}
+
