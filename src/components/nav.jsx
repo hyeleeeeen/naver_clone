@@ -20,6 +20,7 @@ const Nav = () => {
   ];
 
   return (
+    <nav>
     <ul className="flex justify-center mt-3">
       {navData.map((item, index) => {
         const firstItem = index === 0;
@@ -45,6 +46,7 @@ const Nav = () => {
         );
       })}
     </ul>
+    </nav>
   );
 };
 
