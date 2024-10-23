@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Main = () => {
   const [loginInput, setLoginInput] = useState({ id: "", password: "" });
@@ -6,8 +6,12 @@ const Main = () => {
   const [focusField, setFocusField] = useState(null);
   const adImg = "https://ssl.pstatic.net/melona/libs/1378/1378592/b96ed7146a112e87d6ea_20240423164744254.png";
 
-  localStorage.setItem("id1", "aass2296");
-  localStorage.setItem("pw1", "aass9087");
+  // 처음 컴포넌트가 마운트될 때 localStorage 설정
+  useEffect(() => {
+    localStorage.setItem("id1", "aass2296");
+    localStorage.setItem("pw1", "aass9087");
+  }, []);
+
   const localStorageId = localStorage.getItem("id1");
   const localStoragePw = localStorage.getItem("pw1");
 
@@ -31,14 +35,6 @@ const Main = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    isLoginRight();
-  };
-
-  const handleCheck = () => {
-    setIsLoginChecked(!isLoginChecked);
-  };
-
-  const isLoginRight = () => {
     if (loginInput.id === "" || loginInput.password === "") {
       alert("아이디와 비밀번호를 입력해주세요.");
     } else if (
@@ -49,6 +45,10 @@ const Main = () => {
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
     }
+  };
+
+  const handleCheck = () => {
+    setIsLoginChecked(!isLoginChecked);
   };
 
   return (
