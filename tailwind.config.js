@@ -2,7 +2,7 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      'sans': 'Helvetica Neue,sans-serif'
+      sans: "Helvetica Neue,sans-serif",
     },
     extend: {
       colors: {
@@ -38,7 +38,6 @@ export default {
         color_econ: "#008f76",
         color_calendar: "#eb5b5b",
         color_dic: "#031f5f",
-        
       },
       backgroundImage: {
         naver: "url('/assets/img/sp_main.png')",
@@ -49,12 +48,27 @@ export default {
         shop_logo: "url('/assets/img/shopLogo.png')",
         shop_ad: "url('/assets/img/hello_spring.jpeg')",
         logo: "url('/assets/img/sp_logo.png')",
-        login_img: "url('/assets/img/sp_login.png')"
+        login_img: "url('/assets/img/sp_login.png')",
       },
       boxShadow: {
-       outline: '0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04)',
-       login_outline:'0 5px 8px 0 rgba(68,68,68,.04);'
-      }
+        outline: "0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0,0,0,.04)",
+        login_outline: "0 5px 8px 0 rgba(68,68,68,.04);",
+      },
+      keyframes: {
+        slide: {
+          "10%": { top: "0" },
+          "20%": { top: "-28px" },
+          "35%": { top: "-28px" }, // 두 번째 텍스트
+          "50%": { top: "-55px" },
+          "65%": { top: "-55px" }, // 세 번째 텍스트
+          "80%": { top: "-80px" },
+          "90%": { top: "-80px" },
+          "100%": { top: "0px" }, // 네 번째 텍스트
+        },
+      },
+      animation: {
+        slide: "slide 8s infinite",
+      },
     },
   },
   plugins: [],

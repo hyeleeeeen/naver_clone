@@ -1,6 +1,8 @@
 import title from "../../public/assets/titleData.json";
 import MainShop from "./main_shop.jsx";
 import { Link } from "react-router-dom";
+import TextSlider from "./TextSlider.jsx"
+
 
 const Main = () => {
   const adImg =
@@ -39,7 +41,7 @@ const Main = () => {
                 >
                   전체언론사
                 </a>
-                <div className="h-[26px]">
+                <div className="h-[26px] relative overflow-hidden w-[400px] text-left">
                   <i className="bg-naver bg-[length:444px_434px] bg-[left_calc(-123px)_top_calc(-272px)] w-[9px] h-[6px] inline-block mt-[10px] ml-[5px] align-top"></i>
                   <a
                     href="#"
@@ -47,13 +49,7 @@ const Main = () => {
                   >
                     연합뉴스
                   </a>
-                  <a
-                    href="#"
-                    className="w-[360px] inline-block font-medium ml-4 truncate hover:underline"
-                  >
-                    이혜린 &quot;오늘 저녁 메뉴가 궁금&quot;... 엄마
-                    &quot;오늘은 대충 먹는 걸로...&quot;
-                  </a>
+                 <TextSlider />
                 </div>
               </div>
               <div className="flex">
