@@ -1,5 +1,5 @@
 import React from "react";
-import cardImg from "../assets/shop_card.json";
+import cardImg from "../../public/assets/shop_card.json";
 
 const shopData = [
   {

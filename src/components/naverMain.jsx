@@ -1,7 +1,5 @@
-import title from "../assets/titleData.json";
+import title from "../../public/assets/titleData.json";
 import MainShop from "./main_shop.jsx";
-import stockData from "../assets/img/stock.png";
-import weahterData from "../assets/img/weather.png";
 import { Link } from "react-router-dom";
 
 const Main = () => {
@@ -141,13 +139,13 @@ const Main = () => {
           <header className="box-header text-left text-[16px] font-extrabold py-4">
             날씨
           </header>
-          <img src={weahterData} alt="날씨"></img>
+          <img src="assets/img/weather.png" alt="날씨"></img>
         </section>
         <section className="h-[236px] box-outline px-[18px]">
           <header className="box-header text-left text-[16px] font-extrabold py-4">
             증시
           </header>
-          <img src={stockData} alt="증시"></img>
+          <img src="assets/img/stock.png" alt="증시"></img>
         </section>
         <section className="h-[80px] box-outline ">
           <img src={adImg} alt="광고이미지" className=""></img>

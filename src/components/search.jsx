@@ -1,5 +1,5 @@
-import SearchIcon from "../assets/searchIcon";
-import SearchBtnIcon from "../assets/searchBtnIcon";
+import SearchIcon from "../../public/assets/searchIcon";
+import SearchBtnIcon from "../../public/assets/searchBtnIcon";
 
 const Search = () => {
   return (

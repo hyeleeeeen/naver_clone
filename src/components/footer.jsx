@@ -1,6 +1,3 @@
-import whaleIcon from "../assets/img/whale.png";
-import blackLogo from "../assets/img/black_logo.png";
-
 const Footer = () => {
   const pList = [
     "프로젝트 꽃",
@@ -77,12 +74,12 @@ const Footer = () => {
     {
       title: "웨일 브라우저",
       text: "이용안내",
-      icon: whaleIcon,
+      icon: "assets/img/whale.png",
     },
     {
       title: "기업 사이트",
       text: "바로가기",
-      icon: blackLogo,
+      icon: "assets/img/black_logo.png",
     },
   ];
 
