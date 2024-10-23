@@ -19,5 +19,3 @@ const TextSlider = () => {
 };
 
 export default TextSlider;
-
-// overflow-hidden w-[300px] h-5 left-[90px]  text-left
